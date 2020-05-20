@@ -251,7 +251,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.0.1)
@@ -312,7 +311,6 @@ DEPENDENCIES
   selenium-webdriver (= 3.142.3)
   spring (= 2.1.0)
   spring-watcher-listen (= 2.0.1)
-  sqlite3 (= 1.4.1)
   turbolinks (= 5.2.0)
   tzinfo-data
   web-console (= 4.0.1)
