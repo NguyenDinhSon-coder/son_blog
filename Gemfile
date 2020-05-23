@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'active_storage_validations', '0.8.2'
 gem 'bcrypt', '3.1.13'
 group :development, :test do
-#gem 'sqlite3', '1.4.1'
+gem 'sqlite3', '1.4.1'
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 group :development do

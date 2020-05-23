@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :comments,dependent: :destroy
 	has_many :microposts, dependent: :destroy
 	has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id",
 	dependent: :destroy
@@ -71,6 +72,7 @@ end
 # See "Following users" for the full implementation.
 def feed
 	Micropost.where("user_id = ?", id)
+	# Comment.where("micropost_id = ? " , id)
 end
 
 # Follows a user.
