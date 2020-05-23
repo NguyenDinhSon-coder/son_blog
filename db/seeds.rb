@@ -26,6 +26,8 @@ end
 		users.each { |user| user.microposts.create!(content: content) }
 	end
 
+
+
 	# Create following relationships.
 	users = User.all
 	user = users.first
