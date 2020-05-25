@@ -1,25 +1,28 @@
-<li>
-  <%= link_to gravatar_for(@user, size: 50), @user %>
-  <span class="user"><%= link_to @user.name, @user %></span>
-  <span class="content">
-    <%if @comments != nil %>
-      <% @comments.each do |comment| %>
-        <%= comment.micropost.content %>
+<div class="panel panel-primary"style ="width :67%;margin-left:8%">
+  <div class="panel-heading">
+    <%if @comments.blank? %>
+      <span>0 Comment</span>
+    <%else%>
+      <span><%=  @comments.size %>Comment</span>
+    <% end %>
+  </div>
+  <% @comments.each do |comment| %>
+<%#byebug%>
+    <% if comment.user.present? %>
+      <div class="panel panel-primary"style ="width :67%;margin-left:8%">
+        <span> <%= comment.content%></span>
+      </div>
+      <div class="panel-body">
+        <span class="user"><%= link_to comment.user.name, comment.user %></span>
         <%= comment.content %>
-
-        <span class="timestamp ">
+        <span class="timestamp">
           Posted <%= time_ago_in_words(comment.created_at) %> ago.
           <% if current_user?(comment.user) %>
-            <%= link_to "delete", comment, method: :delete,
-              data: { confirm: "You sure?" } %>
+            <%= link_to "delete", comment, method: :delete, data: { confirm: "You sure?" } %>
           <% end %>
         </span>
-
-             <%= render 'comments/comment' %>
-      <% end %>
-    <% else %>
-      <%= render 'comments/comment' %>
-      <%= link_to "Binh Luan", micropost_path(micropost.id) %>
-
-    <% end%>
-  </span>
+      </div>
+    <%end%>
+  <%end%>
+  <%= render 'shared/comment_form' %>
+</div>

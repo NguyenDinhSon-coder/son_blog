@@ -1,19 +1,20 @@
-<li id="comment-">
+<li id="comment-<%= comment.id %>">
+    <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+    <span class="user">
+        <%= comment.user.name %></span>
+    <span class="content">
+        <%= link_to comment.content, micropost_path(comment) %>
+        <%= image_tag comment.display_image if comment.image.attached? %>
 
-<span class="user"> 🗨Comments :  </span>
+    </span>
+    <span class="timestamp">
+        Posted
+        <%= time_ago_in_words(comment.created_at) %> ago.
+        <% if current_user?(comment.user) %>
+        <%= link_to "delete", comment, method: :delete,
+            data: { confirm: "You sure?" } %>
+        <% end %>
 
-<span class="content">
-  <div class="field">
-  <%= text_area :content, placeholder: "What are you thinking...?" %>
-</div>
-
-
-<input type="submit" name="commit" value="up" class="btn btn-primary" data-disable-with="Post">
-
-    </table> </span>
-<span class="timestamp">
-Posted 2 ago.
-</span>
-
+    </span>
 
 </li>

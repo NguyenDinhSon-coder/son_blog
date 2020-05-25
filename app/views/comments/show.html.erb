@@ -1,0 +1,26 @@
+<li>
+  <%= link_to gravatar_for(@user, size: 50), @user %>
+  <span class="user"><%= link_to @user.name, @user %></span>
+  <span class="content">
+
+
+    <br/>
+
+    <%if @comments != nil %>
+      <% @comments.each do |comment| %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= comment.content %></li>
+      </ul>
+        <span class="timestamp ">
+          Posted <%= time_ago_in_words(comment.created_at) %> ago.
+          <% if current_user?(comment.user) %>
+            <%= link_to "delete", comment, method: :delete,
+              data: { confirm: "You sure?" } %>
+          <% end %>
+        </span>
+        <br/>
+
+      <% end %>
+
+  </span>
+</li>
