@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails', '6.0.0'
 # gem 'aws-sdk-s3', '1.46.0', require: false
 gem 'mini_magick', '4.9.5'
-gem 'image_processing','1.9.3'
+gem 'image_processing','1.12.2'
 gem 'puma', '3.12.1'
 gem 'sass-rails', '5.1.0'
 gem 'webpacker', '4.0.7'
